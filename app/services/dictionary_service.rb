@@ -20,6 +20,10 @@ class DictionaryService
   end
 
   def get_json(url)
-    JSON.parse(conn.get(url).body, symbolize_names: true)
+    begin
+      JSON.parse(conn.get(url).body, symbolize_names: true) if !!JSON.parse(conn.get(url).body, symbolize_names: true)
+    rescue JSON::ParserError
+      return false
+    end
   end
 end
