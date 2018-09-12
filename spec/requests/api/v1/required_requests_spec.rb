@@ -11,7 +11,6 @@ describe "GET /api/v1/games/1" do
     get "/api/v1/games/#{game.id}"
     expect(response).to be_successful
     game_display = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
     expect(game_display).to have_key(:game_id)
     expect(game_display).to have_key(:scores)
     expect(game_display[:scores].first[:score]).to eq(15)
