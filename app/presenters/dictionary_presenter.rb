@@ -11,10 +11,10 @@ class DictionaryPresenter
   end
 
   def get_word_values
-    if get_word_info != false
-      Word.new(get_word_info)
-    else
+    if get_word_info == false || get_word_info.empty?
       return nil
+    else get_word_info != false
+      Word.new(get_word_info)
     end
   end
 end
