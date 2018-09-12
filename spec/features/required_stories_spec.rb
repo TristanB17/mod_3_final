@@ -7,10 +7,10 @@ describe 'a user' do
 
       visit '/'
 
-      fill_in :word_search, with: word_1
+      fill_in :search_word, with: word_1
       click_on 'Validate Word'
+      expect(current_path).to eq('/word_search')
       expect(page).to have_content("‘foxes’ is a valid word and its root form is 'fox'.")
-
     end
   end
 end
