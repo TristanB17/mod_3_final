@@ -1,5 +1,6 @@
-<% if @word_values.valid? %>
-  '<%= @word_values.value %>' is a valid word and its root form is '<%= @word_values.root %>'
+<br>
+<% if @word_values.valid %>
+  '<%= @word_values.word_name %>' is a valid word and its root form is '<%= @word_values.root %>'.
 <% else %>
-  '<%= @word_values.value %>' is not a valid word
+  '<%= @word_values.word_name %>' is not a valid word.
 <% end %>

@@ -10,7 +10,17 @@ describe 'a user' do
       fill_in :search_word, with: word_1
       click_on 'Validate Word'
       expect(current_path).to eq('/word_search')
-      expect(page).to have_content("‘foxes’ is a valid word and its root form is 'fox'.")
+      expect(page).to have_content("'foxes' is a valid word and its root form is 'fox'.")
+    end
+    it 'will return invalid if word not valid' do
+      word = 'foxez'
+
+      visit '/'
+
+      fill_in :search_word, with: word
+      click_on 'Validate Word'
+      expect(current_path).to eq('/word_search')
+      expect(page).to have_content("'#{word}' is not a valid word.")
     end
   end
 end
